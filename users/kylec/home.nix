@@ -25,6 +25,7 @@
     git
     git-crypt
     gnupg
+    libsecret
     lsd
     magic-wormhole-rs
     neofetch
@@ -32,6 +33,7 @@
     rustup
     starship
     fd
+    wl-clipboard
     zoxide
   ];
   
