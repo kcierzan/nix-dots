@@ -24,6 +24,7 @@
     brave
     git
     git-crypt
+    gnome.seahorse
     gnupg
     libsecret
     lsd
@@ -37,6 +38,17 @@
     zoxide
   ];
   
+  programs.git = {
+    enable = true;
+    userName = "Kyle Cierzan";
+    userEmail = "kcierzan@gmail.com";
+    extraConfig = {
+      credential.helper = "${
+        pkgs.git.override { withLibsecret = true; }
+      }/bin/git-credential-libsecret";
+    };
+  };
+
   programs.gpg = {
     enable = true;
   };
