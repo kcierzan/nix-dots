@@ -38,6 +38,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = true;
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
@@ -85,7 +86,8 @@
   
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+      url = https://github.com/nix-community/emacs-overlay/archive/98c42f25739fe550de650bca1244b61cab168eae.tar.gz;
+      sha256 = "1p3nfagvpwjzkn3y8mlpxjf0plm3qmazz8hbnnvhkv99c8ck8pg5";
     }) )  
   ];
   
