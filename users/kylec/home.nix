@@ -33,6 +33,7 @@
     pinentry-gnome
     rustup
     starship
+    stow
     fd
     wl-clipboard
     zoxide

@@ -86,6 +86,7 @@
   
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
+      # TODO: this is emacs 30. You are going to want the latest version of emacs 28...
       url = https://github.com/nix-community/emacs-overlay/archive/98c42f25739fe550de650bca1244b61cab168eae.tar.gz;
       sha256 = "1p3nfagvpwjzkn3y8mlpxjf0plm3qmazz8hbnnvhkv99c8ck8pg5";
     }) )  
@@ -95,6 +96,9 @@
     noto-fonts
     noto-fonts-emoji
     iosevka
+    iosevka-comfy.comfy
+    iosevka-comfy.comfy-motion
+    iosevka-comfy.comfy-duo
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
