@@ -22,13 +22,15 @@
   home.packages = with pkgs; [
     bottom
     brave
+    fish
     git
     git-crypt
     gnome.seahorse
     gnupg
     libsecret
     lsd
-    magic-wormhole-rs
+    nodenv
+    magic-wormhole
     neofetch
     pinentry-gnome
     rustup
@@ -50,8 +52,17 @@
     };
   };
 
+  programs.fish = {
+   enable = true;
+  };
+
   programs.gpg = {
     enable = true;
+  };
+ 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;  
   };
   
   services.gpg-agent = {
@@ -71,20 +82,6 @@
         scrollback_lines = 50000
       }
     '';
-  };
-  
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      zoxide init fish | source
-      starship init fish | source
-    '';
-    shellAliases = {
-      gs = "git status";
-      be = "bundle exec";
-      la = "lsd -lah";
-      hole = "wormhole-rs";
-    };
   };
   
   programs.helix = {
