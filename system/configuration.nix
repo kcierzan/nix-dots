@@ -85,11 +85,10 @@
      wget
      ripgrep
      fzf
-     ghc
      gcc
      ruby_3_1
      nodejs
-     nano
+     micro
      python311
      fish
    ];

@@ -27,10 +27,12 @@
     git-crypt
     gnome.seahorse
     gnupg
+    htop
     libsecret
     lsd
     nodenv
     magic-wormhole
+    micro
     neofetch
     pinentry-gnome
     rustup
@@ -54,6 +56,28 @@
 
   programs.fish = {
    enable = true;
+   shellInit = ''
+    set fish_color_param normal
+    set fish_color_error red --bold
+    set fish_color_command a0c980 --bold
+   '';
+   interactiveShellInit = ''
+    set fish_cursor_default line
+    bind \eg grepfiles
+    bind \ep findfile
+
+    if command --query starship
+      starship init fish | source
+    else
+      echo 'starship not found!'
+    end
+
+    if command --query zoxide
+      zoxide init fish | source
+    else
+      echo 'zoxide not found!'
+    end
+   '';
   };
 
   programs.gpg = {
@@ -82,20 +106,6 @@
         scrollback_lines = 50000
       }
     '';
-  };
-  
-  programs.helix = {
-    enable = true;
-    settings = {
-      theme = "gruvbox";
-      editor = {
-        cursor-shape = {
-          insert = "bar";
-          normal = "block";
-          select = "underline";
-        };
-      };
-    };
   };
   
 }
